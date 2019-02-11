@@ -1,0 +1,22 @@
+{
+  "name": "my-keyboard",
+  "version": "0.0.0",
+  "description": "A Simple app example using native Web components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edgarvaldez99/my-keyboard.git"
+  },
+  "author": "edgarvaldez99",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/edgarvaldez99/my-keyboard/issues"
+  },
+  "homepage": "https://github.com/edgarvaldez99/my-keyboard#readme",
+  "devDependencies": {
+    "serve": "^10.1.2"
+  }
+}
