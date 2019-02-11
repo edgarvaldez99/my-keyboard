@@ -5,8 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Keyboard</title>
+    <script type="module" src="./public/app.mjs"></script>
+    <style>
+      .keyboard__row {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
   </head>
   <body>
-    Keyboard webComponent
+    <div class="keyboard">
+      <div class="keyboard__row">
+        <key-btn key="q" size="3rem"></key-btn>
+        <key-btn key="w" size="3rem"></key-btn>
+        <key-btn key="e" size="3rem"></key-btn>
+        <key-btn key="r" size="3rem"></key-btn>
+        <key-btn key="t" size="3rem"></key-btn>
+        <key-btn key="y" size="3rem"></key-btn>
+        <key-btn key="u" size="3rem"></key-btn>
+        <key-btn key="i" size="3rem"></key-btn>
+        <key-btn key="o" size="3rem"></key-btn>
+        <key-btn key="p" size="3rem"></key-btn>
+      </div>
+      <div class="keyboard__row">
+        <key-btn key="a" size="3rem"></key-btn>
+        <key-btn key="s" size="3rem"></key-btn>
+        <key-btn key="d" size="3rem"></key-btn>
+        <key-btn key="f" size="3rem"></key-btn>
+        <key-btn key="g" size="3rem"></key-btn>
+        <key-btn key="h" size="3rem"></key-btn>
+        <key-btn key="j" size="3rem"></key-btn>
+        <key-btn key="k" size="3rem"></key-btn>
+        <key-btn key="l" size="3rem"></key-btn>
+        <key-btn key="ñ" size="3rem"></key-btn>
+      </div>
+      <div class="keyboard__row">
+        <key-btn key="z" size="3rem"></key-btn>
+        <key-btn key="x" size="3rem"></key-btn>
+        <key-btn key="c" size="3rem"></key-btn>
+        <key-btn key="v" size="3rem"></key-btn>
+        <key-btn key="b" size="3rem"></key-btn>
+        <key-btn key="n" size="3rem"></key-btn>
+        <key-btn key="m" size="3rem"></key-btn>
+      </div>
+    </div>
   </body>
 </html>
