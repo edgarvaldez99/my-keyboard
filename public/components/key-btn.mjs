@@ -1,3 +1,5 @@
+import { parseNumber } from '../utils/number.mjs'
+
 const template = self => `
   <style>
     :host {
@@ -17,7 +19,8 @@ const template = self => `
       color: white;
       padding: var(--space);
       text-transform: uppercase;
-      width: ${self.size};
+      height: calc(${self.size} * ${self.rowspan});
+      width: calc(${self.size} * ${self.colspan});
     }
   </style>
 
@@ -25,6 +28,9 @@ const template = self => `
     <button class="btn">${self.key}</button>
   </div>
 `
+
+const defaultSize = '3rem'
+const defaultSpan = 1
 
 export default class KeyBtn extends HTMLElement {
   constructor () {
@@ -47,7 +53,26 @@ export default class KeyBtn extends HTMLElement {
     this.setAttribute('size', size)
   }
 
+  get colspan () {
+    return this.getAttribute('colspan')
+  }
+
+  set colspan (span) {
+    this.setAttribute('colspan', (parseNumber(span) || defaultSpan))
+  }
+
+  get rowspan () {
+    return this.getAttribute('rowspan')
+  }
+
+  set rowspan (span) {
+    this.setAttribute('rowspan', (parseNumber(span) || defaultSpan))
+  }
+
   connectedCallback () {
+    this.size = this.size ? this.size : defaultSize
+    this.colspan = this.colspan ? this.colspan : defaultSpan
+    this.rowspan = this.rowspan ? this.rowspan : defaultSpan
     let shadowRoot = this.attachShadow({ mode: 'open' })
     shadowRoot.innerHTML = template(this)
   }

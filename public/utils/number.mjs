@@ -1,0 +1,1 @@
+export function parseNumber (num) { return num ? typeof num === 'string' ? (parseFloat(num.replace(/,/g, '.')) || 0) : num : 0 }
