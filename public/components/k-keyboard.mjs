@@ -46,35 +46,35 @@ const template = () => `
 export default class KeyBtn extends HTMLElement {
   constructor () {
     super()
-    this._onCheckFn = null
+    this._onKeyChainFn = null
     this._keyBoardString = ''
   }
 
-  get oncheck () {
-    return this._onCheckFn
+  get onkeychain () {
+    return this._onKeyChainFn
   }
 
-  set oncheck (handler) {
-    if (this._onCheckFn) {
-      this.removeEventListener('check', this._onCheckFn)
-      this._onCheckFn = null
+  set onkeychain (handler) {
+    if (this._onKeyChainFn) {
+      this.removeEventListener('check', this._onKeyChainFn)
+      this._onKeyChainFn = null
     }
     if (typeof handler === 'function') {
-      this._onCheckFn = handler
-      this.addEventListener('check', this._onCheckFn)
+      this._onKeyChainFn = handler
+      this.addEventListener('check', this._onKeyChainFn)
     }
   }
 
   static get observedAttributes () {
-    return ['oncheck']
+    return ['onkeychain']
   }
 
   attributeChangedCallback (attrName, oldVal, newVal) {
-    if (attrName === 'oncheck' && oldVal !== newVal) {
+    if (attrName === 'onkeychain' && oldVal !== newVal) {
       if (newVal === null) {
-        this.oncheck = null
+        this.onkeychain = null
       } else {
-        this.oncheck = Function(`return function oncheck(event) {\n\t${newVal};\n}`)()
+        this.onkeychain = Function(`return function onkeychain(event) {\n\t${newVal};\n}`)()
       }
     }
   }
