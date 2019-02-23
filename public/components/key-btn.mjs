@@ -4,12 +4,10 @@ const template = self => `
   <style>
     :host {
       --primary-color: #e67e22;
-      --space: 1em;
+      grid-column-end: span ${Math.ceil(self.colspan)};
+      grid-row-end: span ${Math.ceil(self.rowspan)};
     }
     .key-btn {
-      border: 2px dashed var(--primary-color);
-      display: inline-block;
-      padding: 5px;
       text-align: center;
     }
     .btn {
@@ -17,10 +15,9 @@ const template = self => `
       border: 0;
       border-radius: 5px;
       color: white;
-      padding: var(--space);
       text-transform: uppercase;
       height: calc(${self.size} * ${self.rowspan});
-      width: calc(${self.size} * ${self.colspan});
+      width: 100%;
     }
   </style>
 
@@ -43,6 +40,14 @@ export default class KeyBtn extends HTMLElement {
 
   set key (key) {
     this.setAttribute('key', key)
+  }
+
+  get keycode () {
+    return this.getAttribute('keycode')
+  }
+
+  set keycode (keycode) {
+    this.setAttribute('keycode', keycode)
   }
 
   get size () {
