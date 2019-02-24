@@ -1,3 +1,17 @@
+import {
+  ALT_1_CODE,
+  ALT_2_CODE,
+  BACKSPACE_CODE,
+  CTRL_1_CODE,
+  CTRL_2_CODE,
+  ENTER_CODE,
+  MAYUS_CODE,
+  SHIFT_1_CODE,
+  SHIFT_2_CODE,
+  SPACE_CODE,
+  TAB_CODE
+} from '../utils/key_code.mjs'
+
 const template = self => `
   <style>
     .keyboard {
@@ -10,23 +24,23 @@ const template = self => `
 
   <div class="keyboard">
     <!-- row -->
-    <key-btn key="º" size="${self.keysize}"></key-btn>
-    <key-btn key="1" size="${self.keysize}"></key-btn>
-    <key-btn key="2" size="${self.keysize}"></key-btn>
-    <key-btn key="3" size="${self.keysize}"></key-btn>
-    <key-btn key="4" size="${self.keysize}"></key-btn>
-    <key-btn key="5" size="${self.keysize}"></key-btn>
-    <key-btn key="6" size="${self.keysize}"></key-btn>
-    <key-btn key="7" size="${self.keysize}"></key-btn>
-    <key-btn key="8" size="${self.keysize}"></key-btn>
-    <key-btn key="9" size="${self.keysize}"></key-btn>
-    <key-btn key="0" size="${self.keysize}"></key-btn>
-    <key-btn key="'" size="${self.keysize}"></key-btn>
-    <key-btn key="¡" size="${self.keysize}"></key-btn>
-    <key-btn key="ç" size="${self.keysize}"></key-btn>
-    <key-btn key="←" size="${self.keysize}"></key-btn>
+    <key-btn key="º" size="${self.keysize}" shiftkey="ª" altkey="\"></key-btn>
+    <key-btn key="1" size="${self.keysize}" shiftkey="!" altkey="|"></key-btn>
+    <key-btn key="2" size="${self.keysize}" shiftkey='"' altkey="@"></key-btn>
+    <key-btn key="3" size="${self.keysize}" shiftkey="·" altkey="#"></key-btn>
+    <key-btn key="4" size="${self.keysize}" shiftkey="$" altkey="~"></key-btn>
+    <key-btn key="5" size="${self.keysize}" shiftkey="%" altkey="½"></key-btn>
+    <key-btn key="6" size="${self.keysize}" shiftkey="&" altkey="¬"></key-btn>
+    <key-btn key="7" size="${self.keysize}" shiftkey="/" altkey="{"></key-btn>
+    <key-btn key="8" size="${self.keysize}" shiftkey="(" altkey="["></key-btn>
+    <key-btn key="9" size="${self.keysize}" shiftkey=")" altkey="]"></key-btn>
+    <key-btn key="0" size="${self.keysize}" shiftkey="=" altkey="}"></key-btn>
+    <key-btn key="'" size="${self.keysize}" shiftkey="?" altkey="\"></key-btn>
+    <key-btn key="¡" size="${self.keysize}" shiftkey="¿" altkey="~"></key-btn>
+    <key-btn key="ç" size="${self.keysize}" altkey="}" ></key-btn>
+    <key-btn key="←" size="${self.keysize}" keycode="${BACKSPACE_CODE}"></key-btn>
     <!-- row -->
-    <key-btn key="⇆" size="${self.keysize}"></key-btn>
+    <key-btn key="⇆" size="${self.keysize}" keycode="${TAB_CODE}"></key-btn>
     <key-btn key="q" size="${self.keysize}"></key-btn>
     <key-btn key="w" size="${self.keysize}"></key-btn>
     <key-btn key="e" size="${self.keysize}"></key-btn>
@@ -37,11 +51,11 @@ const template = self => `
     <key-btn key="i" size="${self.keysize}"></key-btn>
     <key-btn key="o" size="${self.keysize}"></key-btn>
     <key-btn key="p" size="${self.keysize}"></key-btn>
-    <key-btn key="\`" size="${self.keysize}"></key-btn>
-    <key-btn key="+" size="${self.keysize}"></key-btn>
-    <key-btn key="↵ Intro" size="${self.keysize}" colspan="2" rowspan="2"></key-btn>
+    <key-btn key="\`" size="${self.keysize}" shiftkey="^" altkey="["></key-btn>
+    <key-btn key="+" size="${self.keysize}" shiftkey="*" altkey="]"></key-btn>
+    <key-btn key="↵ Intro" size="${self.keysize}" keycode="${ENTER_CODE}" colspan="2" rowspan="2"></key-btn>
     <!-- row -->
-    <key-btn key="Bloq Mayús" size="${self.keysize}" colspan="2"></key-btn>
+    <key-btn key="Bloq Mayús" size="${self.keysize}" keycode="${MAYUS_CODE}" colspan="2" modifierkey></key-btn>
     <key-btn key="a" size="${self.keysize}"></key-btn>
     <key-btn key="s" size="${self.keysize}"></key-btn>
     <key-btn key="d" size="${self.keysize}"></key-btn>
@@ -52,10 +66,10 @@ const template = self => `
     <key-btn key="k" size="${self.keysize}"></key-btn>
     <key-btn key="l" size="${self.keysize}"></key-btn>
     <key-btn key="ñ" size="${self.keysize}"></key-btn>
-    <key-btn key="´" size="${self.keysize}"></key-btn>
+    <key-btn key="´" size="${self.keysize}" shiftkey="¨" altkey="{"></key-btn>
     <!-- row -->
-    <key-btn key="⇧ Shif" size="${self.keysize}" colspan="2"></key-btn>
-    <key-btn key="< >" size="${self.keysize}"></key-btn>
+    <key-btn key="⇧ Shif" size="${self.keysize}" keycode="${SHIFT_1_CODE}" colspan="2" modifierkey></key-btn>
+    <key-btn key="<" size="${self.keysize}" shiftkey=">"></key-btn>
     <key-btn key="z" size="${self.keysize}"></key-btn>
     <key-btn key="x" size="${self.keysize}"></key-btn>
     <key-btn key="c" size="${self.keysize}"></key-btn>
@@ -63,16 +77,16 @@ const template = self => `
     <key-btn key="b" size="${self.keysize}"></key-btn>
     <key-btn key="n" size="${self.keysize}"></key-btn>
     <key-btn key="m" size="${self.keysize}"></key-btn>
-    <key-btn key="," size="${self.keysize}"></key-btn>
-    <key-btn key="." size="${self.keysize}"></key-btn>
-    <key-btn key="-" size="${self.keysize}"></key-btn>
-    <key-btn key="⇧ Shif" size="${self.keysize}" colspan="2"></key-btn>
+    <key-btn key="," size="${self.keysize}" shiftkey=";" altkey="─"></key-btn>
+    <key-btn key="." size="${self.keysize}" shiftkey=":" altkey="·"></key-btn>
+    <key-btn key="-" size="${self.keysize}" shiftkey="_"></key-btn>
+    <key-btn key="⇧ Shif" size="${self.keysize}" keycode="${SHIFT_2_CODE}" colspan="2" modifierkey></key-btn>
     <!-- row -->
-    <key-btn key="Ctrl" size="${self.keysize}" colspan="2"></key-btn>
-    <key-btn key="Alt" size="${self.keysize}" colspan="2"></key-btn>
-    <key-btn key="" size="${self.keysize}" colspan="7"></key-btn>
-    <key-btn key="Alt Gr" size="${self.keysize}" colspan="2"></key-btn>
-    <key-btn key="Control" size="${self.keysize}" colspan="2"></key-btn>
+    <key-btn key="Ctrl" size="${self.keysize}" keycode="${CTRL_1_CODE}" colspan="2" modifierkey></key-btn>
+    <key-btn key="Alt" size="${self.keysize}" keycode="${ALT_1_CODE}" colspan="2" modifierkey></key-btn>
+    <key-btn key="" size="${self.keysize}" keycode="${SPACE_CODE}" colspan="7"></key-btn>
+    <key-btn key="Alt Gr" size="${self.keysize}" keycode="${ALT_2_CODE}" colspan="2" modifierkey></key-btn>
+    <key-btn key="Control" size="${self.keysize}" keycode="${CTRL_2_CODE}" colspan="2" modifierkey></key-btn>
   </div>
 `
 
@@ -82,7 +96,8 @@ export default class KeyBtn extends HTMLElement {
   constructor () {
     super()
     this._onKeyChainFn = null
-    this._keyBoardString = ''
+    this._keychain = ''
+    this._keyChainElements = []
   }
 
   get keysize () {
@@ -99,17 +114,91 @@ export default class KeyBtn extends HTMLElement {
 
   set onkeychain (handler) {
     if (this._onKeyChainFn) {
-      this.removeEventListener('check', this._onKeyChainFn)
+      this.removeEventListener('keychain', this._onKeyChainFn)
       this._onKeyChainFn = null
     }
     if (typeof handler === 'function') {
       this._onKeyChainFn = handler
-      this.addEventListener('check', this._onKeyChainFn)
+      this.addEventListener('keychain', this._onKeyChainFn)
     }
   }
 
   static get observedAttributes () {
     return ['onkeychain']
+  }
+
+  existKeyBtnInKeyChainElements (keyBtn) {
+    return this._keyChainElements.find(el => el.key === keyBtn.key)
+  }
+
+  addKeyChainElements (keyBtn) {
+    if (!this.existKeyBtnInKeyChainElements(keyBtn)) this._keyChainElements.push(keyBtn)
+  }
+
+  removeKeyChainElements (keyBtn) {
+    for(let i = this._keyChainElements.length - 1; i >= 0; i--) {
+      if (this._keyChainElements[i].key === keyBtn.key) this._keyChainElements.splice(i, 1);
+    }
+  }
+
+  changeModifierKeyStatusByKeyCode (keyBtn, newValue = false) {
+    switch (keyBtn.getKeyCode()) {
+      case ALT_1_CODE:
+      case ALT_2_CODE:
+        this.altKey = newValue
+        break
+      case SHIFT_1_CODE:
+      case SHIFT_2_CODE:
+        this.shiftKey = newValue
+        break
+      case MAYUS_CODE:
+        this.mayusKey = newValue
+        break
+      case CTRL_1_CODE:
+      case CTRL_2_CODE:
+        this.ctrlKey = newValue
+        break
+    }
+    if (!newValue && keyBtn.hasActiveClass()) keyBtn.removeActiveClass()
+    else keyBtn.addActiveClass()
+  }
+
+  updateKeychain (keyBtn) {
+    const key = keyBtn.getKey(this)
+    if (key === -1) {
+      this._keychain = this._keychain.substring(0, this._keychain.length - 1)
+    } else if (key) {
+      this._keychain += key
+    }
+  }
+
+  createAndDispatchEvent () {
+    let customEvent = new CustomEvent('keychain', { bubbles: true, cancelable: true, detail: this._keychain })
+    customEvent.data = this._keychain
+    this.dispatchEvent(customEvent)
+  }
+
+  keyBtnEventListener (event) {
+    const keyBtn = event.path.find(e => e.tagName === 'KEY-BTN')
+    if (keyBtn.isModifierKey()) {
+      if (keyBtn.hasActiveClass()) {
+        this.removeKeyChainElements(keyBtn)
+        this.changeModifierKeyStatusByKeyCode(keyBtn)
+      } else {
+        this.addKeyChainElements(keyBtn)
+        this.changeModifierKeyStatusByKeyCode(keyBtn, true)
+      }
+    } else {
+      this.updateKeychain(keyBtn)
+    }
+    this.createAndDispatchEvent()
+  }
+
+  addEventListenerInAllKeyBtn (shadowRoot) {
+    const allKeyBtn = shadowRoot.querySelectorAll('key-btn')
+    for (let i = 0,len = allKeyBtn.length; i < len; i++) {
+      allKeyBtn[i].addEventListener('click', event => this.keyBtnEventListener(event))
+    }
   }
 
   attributeChangedCallback (attrName, oldVal, newVal) {
@@ -126,15 +215,6 @@ export default class KeyBtn extends HTMLElement {
     this.keysize = this.keysize ? this.keysize : defaultKeySize
     let shadowRoot = this.attachShadow({ mode: 'open' })
     shadowRoot.innerHTML = template(this)
-    const allKeyBtn = shadowRoot.querySelectorAll('key-btn')
-    for (let i = 0,len = allKeyBtn.length; i < len; i++) {
-      allKeyBtn[i].addEventListener('click', event => {
-        const keyBtn = event.path.find(e => e.tagName === 'KEY-BTN')
-        this._keyBoardString += keyBtn.key
-        let checkEvent = new CustomEvent('check', { bubbles: true, cancelable: true, detail: this._keyBoardString })
-        checkEvent.data = this._keyBoardString
-        this.dispatchEvent(checkEvent)
-      })
-    }
+    this.addEventListenerInAllKeyBtn(shadowRoot)
   }
 }
