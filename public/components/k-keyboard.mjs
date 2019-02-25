@@ -178,8 +178,12 @@ export default class KeyBtn extends HTMLElement {
     this.dispatchEvent(customEvent)
   }
 
+  getKeyBtnByEvent (event) {
+    return event.path ? event.path.find(e => e.tagName === 'KEY-BTN') : (event.target || event.srcElement || event.currentTarget)
+  }
+
   keyBtnEventListener (event) {
-    const keyBtn = event.path.find(e => e.tagName === 'KEY-BTN')
+    const keyBtn = this.getKeyBtnByEvent(event)
     if (keyBtn.isModifierKey()) {
       if (keyBtn.hasActiveClass()) {
         this.removeKeyChainElements(keyBtn)
