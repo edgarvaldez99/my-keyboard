@@ -24,7 +24,7 @@ const template = self => `
 
   <div class="keyboard">
     <!-- row -->
-    <key-btn key="º" size="${self.keysize}" shiftkey="ª" altkey="\"></key-btn>
+    <key-btn key="º" size="${self.keysize}" shiftkey="ª" altkey="\\"></key-btn>
     <key-btn key="1" size="${self.keysize}" shiftkey="!" altkey="|"></key-btn>
     <key-btn key="2" size="${self.keysize}" shiftkey='"' altkey="@"></key-btn>
     <key-btn key="3" size="${self.keysize}" shiftkey="·" altkey="#"></key-btn>
@@ -35,7 +35,7 @@ const template = self => `
     <key-btn key="8" size="${self.keysize}" shiftkey="(" altkey="["></key-btn>
     <key-btn key="9" size="${self.keysize}" shiftkey=")" altkey="]"></key-btn>
     <key-btn key="0" size="${self.keysize}" shiftkey="=" altkey="}"></key-btn>
-    <key-btn key="'" size="${self.keysize}" shiftkey="?" altkey="\"></key-btn>
+    <key-btn key="'" size="${self.keysize}" shiftkey="?" altkey="\\"></key-btn>
     <key-btn key="¡" size="${self.keysize}" shiftkey="¿" altkey="~"></key-btn>
     <key-btn key="ç" size="${self.keysize}" altkey="}" ></key-btn>
     <key-btn key="←" size="${self.keysize}" keycode="${BACKSPACE_CODE}"></key-btn>
