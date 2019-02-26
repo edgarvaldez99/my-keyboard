@@ -1,11 +1,11 @@
-import { parseNumber } from '../utils/number.mjs'
+import { parseNumber } from '/public/utils/number.mjs'
 import {
   BACKSPACE_CODE,
   ENTER_CODE,
   MAYUS_CODE,
   SPACE_CODE,
   TAB_CODE
-} from '../utils/key_code.mjs'
+} from '/public/utils/key_code.mjs'
 
 const template = self => `
   <style>
