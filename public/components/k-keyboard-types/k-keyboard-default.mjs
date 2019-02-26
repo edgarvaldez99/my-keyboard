@@ -94,7 +94,6 @@ const template = self => `
 export default class KKeyboard extends KKeyboardType {
   constructor () {
     super()
-    this._keychain = ''
     this._keyChainElements = []
   }
 
@@ -134,21 +133,7 @@ export default class KKeyboard extends KKeyboardType {
     else keyBtn.addActiveClass()
   }
 
-  updateKeychain (keyBtn) {
-    const key = keyBtn.getKey(this)
-    if (key === -1) {
-      this._keychain = this._keychain.substring(0, this._keychain.length - 1)
-    } else if (key) {
-      this._keychain += key
-    }
-  }
-
-  getKeyBtnByEvent (event) {
-    return event.path ? event.path.find(e => e.tagName === 'KEY-BTN') : (event.target || event.srcElement || event.currentTarget)
-  }
-
-  keyBtnEventListener (event) {
-    const keyBtn = this.getKeyBtnByEvent(event)
+  keyBtnEventListenerForDifferentType ({ keyBtn }) {
     if (keyBtn.isModifierKey()) {
       if (keyBtn.hasActiveClass()) {
         this.removeKeyChainElements(keyBtn)
@@ -160,7 +145,6 @@ export default class KKeyboard extends KKeyboardType {
     } else {
       this.updateKeychain(keyBtn)
     }
-    this.createAndDispatchEventWithData(this._keychain)
   }
 
   getTemplate () {
